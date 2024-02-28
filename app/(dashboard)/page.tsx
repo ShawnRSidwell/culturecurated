@@ -1,7 +1,11 @@
+import Card from "../ui/dashboard/card";
+
 export default function Home() {
   return (
     <main>
-      <p className="bg-red-900 h-screen"></p>
+      <p className="">
+        <Card />
+      </p>
     </main>
   );
 }
