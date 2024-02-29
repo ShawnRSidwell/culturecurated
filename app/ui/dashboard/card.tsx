@@ -5,8 +5,10 @@ type Props = {};
 
 export default function Card({}: Props) {
   return (
-    <div className=" w-[325px] h-[450px] flex flex-col items-center justify-start p-3 ">
-      <p className="font-bold ">Best Places To Visit</p>
+    <div className=" w-[325px] h-[450px] flex flex-col items-center justify-start p-3 hover:bg-slate-50 hover:rounded-lg hover:shadow hover:border-0">
+      <p className="font-semibold text-lg tracking-widest capitalize ">
+        Best Places To Visit
+      </p>
       <Image
         className="w-full h-1/2 rounded-lg"
         src={example}
