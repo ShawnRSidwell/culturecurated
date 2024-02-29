@@ -5,25 +5,25 @@ type Props = {};
 
 export default function Card({}: Props) {
   return (
-    <div className=" w-[325px] h-[450px] flex flex-col items-center justify-start p-3 hover:bg-slate-50 hover:rounded-lg hover:shadow hover:border-0">
+    <div className=" w-[300px] h-[500px] flex flex-col items-center justify-start p-3 hover:bg-slate-50 hover:rounded-lg hover:shadow hover:border-0">
       <p className="font-semibold text-lg tracking-widest capitalize ">
         Best Places To Visit
       </p>
       <Image
-        className="w-full h-1/2 rounded-lg"
+        className="w-full h-1/2 rounded-lg "
         src={example}
         width={500}
         height={500}
         alt=""
       />
-      <p className="text-sm text-gray-500">
+      <p className="text-sm text-gray-500 p-1 py-2">
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo
         dolor facere, dolore iure delectus, a atque nesciunt ipsa nihil amet
         sapiente exercitationem labore obcaecati officiis temporibus quod
         placeat? Maxime, quia.
       </p>
 
-      <div className="flex justify-between w-full bg-sky-100 shadow border-0 rounded p-2 mt-1">
+      <div className="flex justify-between bg-sky-100 shadow border-0 rounded px-2 py-1 mt-1 w-full">
         <div className="text-sm flex items-center justify-center gap-1">
           <Image
             className=" w-10 h-10 rounded-full "
