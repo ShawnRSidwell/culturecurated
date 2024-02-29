@@ -1,6 +1,11 @@
 import Card from "../ui/dashboard/card";
 import Sidenav from "../ui/dashboard/sidenav";
 import Topnav from "../ui/dashboard/topnav";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Dashboard",
+};
 
 interface LayoutProps {
   children: React.ReactNode;
