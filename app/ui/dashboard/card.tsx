@@ -5,12 +5,12 @@ type Props = {};
 
 export default function Card({}: Props) {
   return (
-    <div className=" w-[300px] h-[500px] flex flex-col items-center justify-start p-3 hover:bg-slate-50 hover:rounded-lg hover:shadow hover:border-0">
+    <div className=" w-[300px] h-[500px] flex flex-col items-center justify-start p-3 ">
       <p className="font-semibold text-lg tracking-widest capitalize ">
         Best Places To Visit
       </p>
       <Image
-        className="w-full h-1/2 rounded-lg "
+        className="w-full h-1/2 rounded-xl hover:rounded-none transition-all duration-300 "
         src={example}
         width={500}
         height={500}
@@ -23,7 +23,7 @@ export default function Card({}: Props) {
         placeat? Maxime, quia.
       </p>
 
-      <div className="flex justify-between bg-sky-100 shadow border-0 rounded px-2 py-1 mt-1 w-full">
+      <div className="flex justify-between bg-sky-100 shadow border-0 rounded px-2 py-1 mt-1 w-full hover:rounded-none transition-all  hover:scale-[102%]">
         <div className="text-sm flex items-center justify-center gap-1">
           <Image
             className=" w-10 h-10 rounded-full "
