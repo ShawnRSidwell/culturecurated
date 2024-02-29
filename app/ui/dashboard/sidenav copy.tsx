@@ -10,12 +10,11 @@ export default function Sidenav() {
   return (
     <div className="hidden h-screen flex-col  md:px-2  md:block md:w-64 scroll-smooth">
       <div className="border-b-2 border-slate-400">
-        <div className="flex flex-col items-center justify-center gap-2 py-2">
-          <p className="h-10 w-full flex grow items-center justify-start leading-relaxed gap-3 pl-2">
-            <MdHomeFilled size="1.25em" /> Home
-          </p>
-        </div>
-        <div className="flex flex-col items-center justify-center gap-2 py-2">
+        <p className="h-10 w-full flex grow items-center justify-start leading-relaxed gap-3 pl-2">
+          <MdHomeFilled size="1.25em" /> Home
+        </p>
+
+        <div className="">
           <p className="h-10 w-full flex grow items-center justify-start leading-relaxed gap-3 pl-2">
             <MdOutlineLocalFireDepartment size="1.25em" /> Trending
           </p>
@@ -32,7 +31,7 @@ export default function Sidenav() {
         </div>
       </div>
       <div className="border-b-2 border-slate-400">
-        <div className="flex flex-col items-center justify-center gap-3 py-2">
+        <div className="flex flex-col items-center justify-center gap-3 py-">
           <p className="h-10 w-full flex grow items-center justify-start leading-relaxed gap-3 pl-2 font-medium">
             You &gt;
           </p>
