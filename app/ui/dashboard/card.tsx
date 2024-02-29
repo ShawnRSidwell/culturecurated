@@ -5,7 +5,7 @@ type Props = {};
 
 export default function Card({}: Props) {
   return (
-    <div className=" w-[350px] h-[400px] flex flex-col items-center justify-start  p-3 ">
+    <div className=" w-[325px] h-[450px] flex flex-col items-center justify-start p-3 ">
       <p className="font-bold ">Best Places To Visit</p>
       <Image
         className="w-full h-1/2 rounded-lg"
@@ -21,7 +21,7 @@ export default function Card({}: Props) {
         placeat? Maxime, quia.
       </p>
 
-      <div className="flex justify-between w-full bg-slate-100 rounded p-2 mt-1">
+      <div className="flex justify-between w-full bg-sky-100 rounded p-2 mt-1">
         <div className="text-sm flex items-center justify-center gap-1">
           <Image
             className="bg-blue-100 w-10 h-10 rounded-full "
@@ -35,9 +35,9 @@ export default function Card({}: Props) {
         <div className="text-sm flex items-center justify-center">
           <div className="flex flex-col justify-center">
             <p className="tracking-widest text-xs">🔵🔵🔵🔵🔵</p>
-            <p className="text-xs font-semibold"> Locations</p>
-            <p className="text-xs">225k Views</p>
-            <p className="text-xs"> 2 months ago</p>
+            <p className="text-xs font-semibold"> Travel</p>
+            <p className="text-xs text-gray-500">225k Views</p>
+            <p className="text-xs text-gray-500"> 2 months ago</p>
           </div>
           <div className="flex flex-col items-center justify-center"></div>
         </div>
