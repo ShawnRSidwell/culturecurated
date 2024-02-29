@@ -21,10 +21,10 @@ export default function Card({}: Props) {
         placeat? Maxime, quia.
       </p>
 
-      <div className="flex justify-between w-full bg-sky-100 rounded p-2 mt-1">
+      <div className="flex justify-between w-full bg-sky-100 shadow border-0 rounded p-2 mt-1">
         <div className="text-sm flex items-center justify-center gap-1">
           <Image
-            className="bg-blue-100 w-10 h-10 rounded-full "
+            className=" w-10 h-10 rounded-full "
             src={example}
             width={500}
             height={500}
