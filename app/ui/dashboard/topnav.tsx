@@ -10,7 +10,7 @@ type Props = {};
 
 export default function Topnav({}: Props) {
   return (
-    <div className="flex  bg-white justify-between  px-2 py-3">
+    <div className="flex  bg-white justify-between  px-2 py-3 mr-3">
       {/* TODO: add flip down menu */}
       <div className="flex items-center justify-center p-2 gap-1">
         <CiMenuBurger size="1.25em" />
@@ -34,10 +34,10 @@ export default function Topnav({}: Props) {
           Search
         </button>
       </div>
-      <div className="flex items-center justify-end">
+      <div className="flex items-center justify-end gap-2 px-2">
         <CiCirclePlus size="2em" />
         <IoNotificationsCircleOutline size="2em" />
-        <BsPersonCircle size="1.58em" />
+        <BsPersonCircle size="2.5em" />
       </div>
     </div>
   );
