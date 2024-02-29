@@ -14,8 +14,6 @@ export default function Card({}: Props) {
         height={500}
         alt=""
       />
-      <div className="tracking-widest text-xs">🔵🔵🔵🔵🔵</div>
-      <p className="text-xs">225k Views • 2 months ago</p>
       <p className="text-sm text-gray-500">
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo
         dolor facere, dolore iure delectus, a atque nesciunt ipsa nihil amet
@@ -26,7 +24,7 @@ export default function Card({}: Props) {
       <div className="flex justify-between w-full bg-slate-100 rounded p-2 mt-1">
         <div className="text-sm flex items-center justify-center gap-1">
           <Image
-            className="bg-blue-100 w-8 h-8 rounded-full "
+            className="bg-blue-100 w-10 h-10 rounded-full "
             src={example}
             width={500}
             height={500}
@@ -35,7 +33,13 @@ export default function Card({}: Props) {
           <p className="ml-1 font-semibold">Shawn Sidwell</p>
         </div>
         <div className="text-sm flex items-center justify-center">
-          <p className="font-semibold">Music</p>
+          <div className="flex flex-col justify-center">
+            <p className="tracking-widest text-xs">🔵🔵🔵🔵🔵</p>
+            <p className="text-xs font-semibold"> Locations</p>
+            <p className="text-xs">225k Views</p>
+            <p className="text-xs"> 2 months ago</p>
+          </div>
+          <div className="flex flex-col items-center justify-center"></div>
         </div>
       </div>
     </div>
