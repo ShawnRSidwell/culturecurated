@@ -4,8 +4,8 @@ type Props = {};
 
 function CategoryBar({}: Props) {
   return (
-    <div className="flex gap-3 overflow-clip">
-      <button className="bg-black text-white px-3 rounded h-8"> All</button>
+    <div className="flex gap-3 overflow-clip h-10 ml-3">
+      <button className="bg-black text-white px-3 rounded"> All</button>
       <button className="bg-slate-200 px-3 text-black rounded hover:bg-slate-400 hover:text-black">
         {" "}
         Travel

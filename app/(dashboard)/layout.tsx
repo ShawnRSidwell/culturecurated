@@ -12,7 +12,7 @@ function Layout({ children }: LayoutProps) {
       <Topnav />
       <div className="flex">
         <Sidenav />
-        <div className=" flex-grow w-full mx-3 my-5 md:overflow-y-auto">
+        <div className=" flex-grow w-full mx-3 my-2 md:overflow-y-auto">
           {children}
         </div>
       </div>
