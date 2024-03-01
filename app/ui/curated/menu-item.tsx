@@ -9,7 +9,7 @@ export default function MenuItem({}: Props) {
   return (
     <div className="w-full h-[140px] grid grid-cols-2  gap-3">
       <div className=" flex items-center justify-center">
-        <Image className="rounded-lg " src={testImage} alt="" />
+        <Image className="rounded-lg h-[125px]" src={testImage} alt="" />
       </div>
       <div className="flex flex-col justify-between px-1 py-3">
         <div>
