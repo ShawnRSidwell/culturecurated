@@ -2,6 +2,48 @@ import travelImage from "@/public/test-images/Scottsdale_waterfront.jpg";
 import foodImage from "@/public/test-images/Food-Taco-Cloud-Style-Graphics-9428700-1.jpg";
 import movieImage from "@/public/test-images/7f58450a663c6c99a07d97fe1c61344ej.webp";
 
+export const topics = [
+  "All",
+  "Destinations",
+  "Best of the year",
+  "Tacos",
+  "Gaming",
+  "House Mucic",
+  "Burritos",
+  "Classical",
+  "Horror Stories",
+  "trap music",
+  "comedy",
+  "corvettes",
+  "computers",
+  "Phoenix",
+  "portland",
+  "Live Music",
+  "Concerts",
+];
+
+/*
+Layout:
+  
+{
+    id: UUID,
+    title: string,
+    author: string
+    image: url,
+    description: string
+    rating: number
+    category: enum
+    topics:[ "destinations" , "flying", 'attractions'],
+    views: 250000000
+    date: timestamp,
+    list: curation.list,
+  },
+
+
+
+
+*/
+
 export const curations = [
   {
     id: 1,
@@ -52,7 +94,7 @@ export const curations = [
     list: ["Portland", "Tigard", "Hillsboro"],
   },
   {
-    id: 1,
+    id: 4,
     title: "Best Places To Visit",
     author: "Shawn Sidwell",
     image: travelImage,
@@ -68,7 +110,7 @@ export const curations = [
     list: ["Portland", "Tigard", "Hillsboro"],
   },
   {
-    id: 2,
+    id: 5,
     title: "Favorite Movies of 2024",
     author: "Leonardo Dicaprio",
     image: movieImage,
@@ -84,7 +126,7 @@ export const curations = [
     list: ["Portland", "Tigard", "Hillsboro"],
   },
   {
-    id: 3,
+    id: 6,
     title: "Favorite Taco Restaurant",
     author: "Gordon Ramsey",
     image: foodImage,
@@ -100,7 +142,7 @@ export const curations = [
     list: ["Portland", "Tigard", "Hillsboro"],
   },
   {
-    id: 1,
+    id: 7,
     title: "Best Places To Visit",
     author: "Shawn Sidwell",
     image: travelImage,
@@ -116,7 +158,7 @@ export const curations = [
     list: ["Portland", "Tigard", "Hillsboro"],
   },
   {
-    id: 2,
+    id: 8,
     title: "Favorite Movies of 2024",
     author: "Leonardo Dicaprio",
     image: movieImage,
@@ -132,7 +174,7 @@ export const curations = [
     list: ["Portland", "Tigard", "Hillsboro"],
   },
   {
-    id: 3,
+    id: 9,
     title: "Favorite Taco Restaurant",
     author: "Gordon Ramsey",
     image: foodImage,
@@ -148,7 +190,7 @@ export const curations = [
     list: ["Portland", "Tigard", "Hillsboro"],
   },
   {
-    id: 1,
+    id: 10,
     title: "Best Places To Visit",
     author: "Shawn Sidwell",
     image: travelImage,
@@ -164,7 +206,7 @@ export const curations = [
     list: ["Portland", "Tigard", "Hillsboro"],
   },
   {
-    id: 2,
+    id: 11,
     title: "Favorite Movies of 2024",
     author: "Leonardo Dicaprio",
     image: movieImage,
@@ -180,7 +222,7 @@ export const curations = [
     list: ["Portland", "Tigard", "Hillsboro"],
   },
   {
-    id: 3,
+    id: 12,
     title: "Favorite Taco Restaurant",
     author: "Gordon Ramsey",
     image: foodImage,

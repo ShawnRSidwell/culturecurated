@@ -1,120 +1,22 @@
 import React from "react";
 
-type Props = {};
+import { topics } from "@/app/lib/placeholder-data";
+import clsx from "clsx";
+type Props = {
+  selectedTopic: string;
+  setSelectedTopic: (value: string) => void;
+  children: string;
+};
 
-function CategoryBar({}: Props) {
+function CategoryBar({ selectedTopic, setSelectedTopic, children }: Props) {
   return (
-    <div className="flex gap-3 overflow-clip h-10 ml-3 mt-1">
-      <button className="bg-black text-white px-3 rounded"> All</button>
-      <button className="bg-gray-100 px-3 text-black rounded hover:bg-gray-200 hover:text-black">
-        {" "}
-        Travel
-      </button>
-      <button className="bg-gray-100 px-3 text-black rounded hover:bg-gray-200 hover:text-black">
-        {" "}
-        Music
-      </button>
-      <button className="bg-gray-100 px-3 text-black rounded hover:bg-gray-200 hover:text-black">
-        {" "}
-        Movies
-      </button>
-      <button className="bg-gray-100 px-3 text-black rounded hover:bg-gray-200 hover:text-black">
-        {" "}
-        Games
-      </button>
-      <button className="bg-gray-100 px-3 text-black rounded hover:bg-gray-200 hover:text-black">
-        {" "}
-        Background Music
-      </button>
-      <button className="bg-gray-100 px-3 text-black rounded hover:bg-gray-200 hover:text-black">
-        {" "}
-        Travel
-      </button>
-      <button className="bg-gray-100 px-3 text-black rounded hover:bg-gray-200 hover:text-black">
-        {" "}
-        Music
-      </button>
-      <button className="bg-gray-100 px-3 text-black rounded hover:bg-gray-200 hover:text-black">
-        {" "}
-        Movies
-      </button>
-      <button className="bg-gray-100 px-3 text-black rounded hover:bg-gray-200 hover:text-black">
-        {" "}
-        Games
-      </button>
-      <button className="bg-gray-100 px-3 text-black rounded hover:bg-gray-200 hover:text-black">
-        {" "}
-        Background Music
-      </button>
-      <button className="bg-gray-100 px-3 text-black rounded hover:bg-gray-200 hover:text-black">
-        {" "}
-        Travel
-      </button>
-      <button className="bg-gray-100 px-3 text-black rounded hover:bg-gray-200 hover:text-black">
-        {" "}
-        Music
-      </button>
-      <button className="bg-gray-100 px-3 text-black rounded hover:bg-gray-200 hover:text-black">
-        {" "}
-        Movies
-      </button>
-      <button className="bg-gray-100 px-3 text-black rounded hover:bg-gray-200 hover:text-black">
-        {" "}
-        Games
-      </button>
-      <button className="bg-gray-100 px-3 text-black rounded hover:bg-gray-200 hover:text-black">
-        {" "}
-        Background Music
-      </button>
-      <button className="bg-gray-100 px-3 text-black rounded hover:bg-gray-200 hover:text-black">
-        {" "}
-        Background Music
-      </button>
-      <button className="bg-gray-100 px-3 text-black rounded hover:bg-gray-200 hover:text-black">
-        {" "}
-        Travel
-      </button>
-      <button className="bg-gray-100 px-3 text-black rounded hover:bg-gray-200 hover:text-black">
-        {" "}
-        Music
-      </button>
-      <button className="bg-gray-100 px-3 text-black rounded hover:bg-gray-200 hover:text-black">
-        {" "}
-        Movies
-      </button>
-      <button className="bg-gray-100 px-3 text-black rounded hover:bg-gray-200 hover:text-black">
-        {" "}
-        Games
-      </button>
-      <button className="bg-gray-100 px-3 text-black rounded hover:bg-gray-200 hover:text-black">
-        {" "}
-        Background Music
-      </button>
-      <button className="bg-gray-100 px-3 text-black rounded hover:bg-gray-200 hover:text-black">
-        {" "}
-        Background Music
-      </button>
-      <button className="bg-gray-100 px-3 text-black rounded hover:bg-gray-200 hover:text-black">
-        {" "}
-        Travel
-      </button>
-      <button className="bg-gray-100 px-3 text-black rounded hover:bg-gray-200 hover:text-black">
-        {" "}
-        Music
-      </button>
-      <button className="bg-gray-100 px-3 text-black rounded hover:bg-gray-200 hover:text-black">
-        {" "}
-        Movies
-      </button>
-      <button className="bg-gray-100 px-3 text-black rounded hover:bg-gray-200 hover:text-black">
-        {" "}
-        Games
-      </button>
-      <button className="bg-gray-100 px-3 text-black rounded hover:bg-gray-200 hover:text-black">
-        {" "}
-        Background Music
-      </button>
-    </div>
+    // <button className="bg-black text-white px-3 rounded"> All</button>
+    <button
+      onClick={() => setSelectedTopic(children)}
+      className={` flex-grow rounded-lg capitalize  ${children.includes(selectedTopic) ? "bg-black text-white" : "bg-gray-100 text-black hover:bg-gray-200"}`}
+    >
+      {children}
+    </button>
   );
 }
 
