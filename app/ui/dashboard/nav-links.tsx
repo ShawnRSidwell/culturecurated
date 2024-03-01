@@ -19,6 +19,7 @@ import { HiOutlineShoppingBag } from "react-icons/hi2";
 import { TbBook } from "react-icons/tb";
 import { IoCarSportOutline } from "react-icons/io5";
 import { MdOutlineElectricalServices } from "react-icons/md";
+import { CiGlobe } from "react-icons/ci";
 
 import clsx from "clsx";
 
@@ -46,6 +47,7 @@ const categoryLinks = [
   { name: "Books ", href: "/a", icon: TbBook },
   { name: "Automobiles ", href: "/a", icon: IoCarSportOutline },
   { name: "Electronics ", href: "/a", icon: MdOutlineElectricalServices },
+  { name: "Web ", href: "/a", icon: CiGlobe },
 ];
 
 export default function NavLinks({ linkType }: { linkType: string }) {

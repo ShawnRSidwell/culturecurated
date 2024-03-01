@@ -7,7 +7,7 @@ type Props = {};
 
 export default function MenuItem({}: Props) {
   return (
-    <div className="w-full h-[140px] grid grid-cols-2  gap-3">
+    <div className="w-full h-[140px] grid grid-cols-2  gap-3 hover:rounded hover:bg-gray-50 ">
       <div className=" flex items-center justify-center">
         <Image className="rounded-lg h-[125px]" src={testImage} alt="" />
       </div>
