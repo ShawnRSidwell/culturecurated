@@ -4,7 +4,7 @@ type Props = {};
 
 export default function Filter({}: Props) {
   return (
-    <div className=" max-w-3xl w-full flex gap-4 items-center justify-center \">
+    <div className="max-w-3xl w-full flex gap-4 items-center justify-center \">
       <div>
         <p>
           <span className="font-medium">Category:</span> Movies
@@ -14,7 +14,7 @@ export default function Filter({}: Props) {
         <label htmlFor="pet-select" className="p-2 font-medium">
           Subcategories:
         </label>
-        <select id="pet-select" className="bg-gray-50 rounded">
+        <select id="pet-select" className="bg-gray-50 rounded text-sm">
           <option value="All">All</option>
           <option value="volvo">Volvo</option>
           <option value="saab">Saab</option>
@@ -24,8 +24,8 @@ export default function Filter({}: Props) {
       </div>
       <div>
         <fieldset className="flex gap-2">
-          <label htmlFor="views" className="font-medium">
-            Views:
+          <label htmlFor="show" className="font-medium">
+            Show:
           </label>
           <label htmlFor="All">
             <input type="radio" id="All" name="viewType" />
