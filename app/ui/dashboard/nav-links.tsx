@@ -1,7 +1,5 @@
 "use client";
 import Link from "next/link";
-import { CiMenuBurger } from "react-icons/ci";
-import { CiCirclePlus } from "react-icons/ci";
 import { MdHomeFilled } from "react-icons/md";
 import { MdOutlineLocalFireDepartment } from "react-icons/md";
 import { PiBinoculars } from "react-icons/pi";
