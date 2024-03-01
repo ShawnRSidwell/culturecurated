@@ -6,11 +6,12 @@ export default function Page() {
   return (
     <main>
       <CategoryBar />
-      <div className="grid grid-cols-2 mt-7 md:grid-cols-5 md:auto-cols-max gap-y-10 overflow-hidden">
+      <div className="grid grid-cols-2 mt-7 md:grid-cols-5 md:auto-cols-max gap-y-10 overflow-hidden ">
         {curations.map((curation) => {
           return (
             <Card
-              key={curation.title}
+              key={curation.id}
+              id={curation.id}
               title={curation.title}
               author={curation.author}
               image={curation.image}
