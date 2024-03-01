@@ -1,9 +1,9 @@
 import React from "react";
-import example from "@/public/Scottsdale_waterfront.jpg";
+import example from "@/public/test-images/Scottsdale_waterfront.jpg";
 import Image from "next/image";
 type Props = {};
 
-export default function Card({}: Props) {
+export default function FakeCard({}: Props) {
   return (
     <div className=" w-[300px] h-[500px] flex flex-col items-center justify-start p-3 ">
       <p className="font-semibold text-lg tracking-widest capitalize ">
