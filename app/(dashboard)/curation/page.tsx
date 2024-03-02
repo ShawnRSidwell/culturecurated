@@ -2,6 +2,7 @@ import Image from "next/image";
 import testImage from "@/public/test-images/7f58450a663c6c99a07d97fe1c61344ej.webp";
 import Filter from "@/app/ui/curated/filter";
 
+//Add view count and author with profile picture at bottom with topics as well.
 export default function Page() {
   return (
     <div className="p-5 flex flex-col items-center justify-center">
@@ -20,8 +21,11 @@ export default function Page() {
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim nisi
           suscipit beatae consequatur, aliquid autem veniam at nesciunt, eveniet
           distinctio voluptas in culpa consectetur similique et amet! Sint,
-          illum maiores?
-        </p>{" "}
+          illum maiores? Lorem ipsum dolor sit amet consectetur adipisicing
+          elit. Enim nisi suscipit beatae consequatur, aliquid autem veniam at
+          nesciunt, eveniet distinctio voluptas in culpa consectetur similique
+          et amet! Sint, illum maiores?
+        </p>
       </div>
       <div className="mt-5">
         <Filter />
