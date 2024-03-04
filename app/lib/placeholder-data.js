@@ -27,14 +27,14 @@ List example::
 {
     id: UUID,
     title: string,
-    author: string  ---> use id and connect to user db? 
+    author: userId
     image: url,
     description: string
     rating: number
     category: enum
-    topics:string[], ---> topics for earching
-    views: 250000000
+    topics:string[], ---> topics for searching
     date: timestamp,
+    viewcount: number ---> increment on each view,
     list: integer[], ---> list of list item id's
   },
   listitem example:
@@ -47,23 +47,43 @@ List example::
 },
 
 rating:
-CREATE TABLE item_ratings (
+CREATE TABLE ratings (
+    rating_id SERIAL PRIMARY KEY,
+    user_id INT REFERENCES users(user_id),
+    item_id INT REFERENCES items(item_id),
+    rating_value FLOAT NOT NULL CHECK (rating_value >= 0 AND rating_value <= 5),
+    timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE viewing_history (
     id SERIAL PRIMARY KEY,
+    user_id INTEGER NOT NULL,
     item_id INTEGER NOT NULL,
-    rating INTEGER NOT NULL,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE saved_list (
+    user_id INTEGER PRIMARY KEY,
+    item_id INTEGER NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    FOREIGN KEY (item_id) REFERENCES items(id)
 );
 
 User Example:
 {
   id: UUID,
   name: string,
+  profile: picture,
+  email: string,
   password: bigint,
-  about: string,
-  rated: UUID[] ---> will be a list of rated lists
+  biography: string,
+  followers: int ---> increment on each following. 
+
+  //These will be grabbed from join tables
   history: UUID[] ---> will be a list of recently viewed lists
   saved: UUID[] ---> will be a list of saved lists
   following: UUID[] ---> will be a list of userids,
+  created: UUID[] ---> will be a list of usercreated lists
 
 }
 
