@@ -23,21 +23,49 @@ export const topics = [
 ];
 
 /*
-Layout:
-  
+List example::
 {
     id: UUID,
     title: string,
-    author: string
+    author: string  ---> use id and connect to user db? 
     image: url,
     description: string
     rating: number
     category: enum
-    topics:[ "destinations" , "flying", 'attractions'],
+    topics:string[], ---> topics for earching
     views: 250000000
     date: timestamp,
-    list: curation.list,
+    list: integer[], ---> list of list item id's
   },
+  listitem example:
+{   id: UUID,
+    title: string,
+    image: string,
+    description: string,
+    link: string,
+    subcategory: string,
+},
+
+rating:
+CREATE TABLE item_ratings (
+    id SERIAL PRIMARY KEY,
+    item_id INTEGER NOT NULL,
+    rating INTEGER NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+User Example:
+{
+  id: UUID,
+  name: string,
+  password: bigint,
+  about: string,
+  rated: UUID[] ---> will be a list of rated lists
+  history: UUID[] ---> will be a list of recently viewed lists
+  saved: UUID[] ---> will be a list of saved lists
+  following: UUID[] ---> will be a list of userids,
+
+}
 
 
 
