@@ -30,13 +30,15 @@ List example::
     author: userId
     image: url,
     description: string
-    rating: number
     category: enum
-    topics:string[], ---> topics for searching
     date: timestamp,
     viewcount: number ---> increment on each view,
     list: integer[], ---> list of list item id's
+    topics:string[], ---> topics for searching
   },
+
+
+
   listitem example:
 {   id: UUID,
     title: string,
@@ -54,6 +56,12 @@ CREATE TABLE ratings (
     rating_value FLOAT NOT NULL CHECK (rating_value >= 0 AND rating_value <= 5),
     timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+Topics:
+CREATE TABLE topics (
+    Topic_id SERIAL PRIMARY KEY,
+    item_id INT REFERENCES items(item_id),
+    topic TEXT );
 
 CREATE TABLE viewing_history (
     id SERIAL PRIMARY KEY,
@@ -85,6 +93,15 @@ User Example:
   following: UUID[] ---> will be a list of userids,
   created: UUID[] ---> will be a list of usercreated lists
 
+
+
+CREATE TABLE user_followers (
+    follower_id INTEGER,
+    followed_id INTEGER,
+    PRIMARY KEY (follower_id, followed_id),
+    FOREIGN KEY (follower_id) REFERENCES users(id),
+    FOREIGN KEY (followed_id) REFERENCES users(id)
+);
 }
 
 
