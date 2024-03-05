@@ -89,14 +89,34 @@ CREATE TABLE user_followers (
 
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
-    name VARCHAR(255) NOT NULL,
+    username VARCHAR(50) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
-    email TEXT NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,,
     profile_picture TEXT NULL,
     biography TEXT NULL
 );
 
 -- will need to create enum for category type--
+
+/*Another option:   CREATE TABLE item_categories (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(50) NOT NULL UNIQUE
+);
+
+INSERT INTO item_categories (name) VALUES ('Electronics'), ('Clothing'), ('Books'), ('Furniture');
+
+CREATE TABLE user_lists (
+    id SERIAL PRIMARY KEY,
+    user_id BIGINT NOT NULL,
+    title TEXT NOT NULL,
+    image TEXT,
+    description TEXT,
+    category_id INT NOT NULL,
+    date_created TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    FOREIGN KEY (category_id) REFERENCES item_categories(id)
+);
+  */
 CREATE TYPE item_category AS ENUM ('Electronics', 'Clothing', 'Books', 'Furniture');
 
 CREATE TABLE user_lists (
@@ -106,7 +126,7 @@ CREATE TABLE user_lists (
     image TEXT NULL,
     description TEXT NULL,
     category item_category NOT NULL,
-    date TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL,
+    date_created TIMESTAMP(0) WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP NOT NULL, 
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
@@ -125,7 +145,7 @@ CREATE TABLE user_viewing_histories (
     id SERIAL PRIMARY KEY,
     user_id BIGINT NOT NULL,
     item_id BIGINT NOT NULL,
-    timestamp TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL,
+    timestamp TIMESTAMP(0) WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(id),
     FOREIGN KEY (item_id) REFERENCES lists(id)
 );
@@ -142,7 +162,7 @@ CREATE TABLE user_ratings (
     user_id BIGINT NOT NULL,
     item_id BIGINT NOT NULL,
     rating_value DOUBLE PRECISION NOT NULL,
-    timestamp TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL,
+    timestamp TIMESTAMP(0) WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(id),
     FOREIGN KEY (item_id) REFERENCES lists(id)
 );
