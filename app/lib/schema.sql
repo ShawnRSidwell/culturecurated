@@ -13,8 +13,6 @@ List example:
    
   },
 
-
-
   listitem example:
 {   id: UUID,
     title: string,
@@ -25,35 +23,6 @@ List example:
     category: category_type (create the category type like so: CREATE TYPE item_category AS ENUM ('Electronics', 'Clothing', 'Books', 'Furniture');
 )
 },
-
-rating:
-CREATE TABLE ratings (
-    rating_id SERIAL PRIMARY KEY,
-    user_id INT REFERENCES users(user_id),
-    item_id INT REFERENCES items(item_id),
-    rating_value FLOAT NOT NULL CHECK (rating_value >= 0 AND rating_value <= 5),
-    timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-
-Topics:
-CREATE TABLE topics (
-    Topic_id SERIAL PRIMARY KEY,
-    item_id INT REFERENCES items(item_id),
-    topic TEXT );
-
-CREATE TABLE viewing_history (
-    id SERIAL PRIMARY KEY,
-    user_id INTEGER NOT NULL,
-    item_id INTEGER NOT NULL,
-    timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-
-CREATE TABLE saved_list (
-    user_id INTEGER PRIMARY KEY,
-    item_id INTEGER NOT NULL,
-    FOREIGN KEY (user_id) REFERENCES users(id),
-    FOREIGN KEY (item_id) REFERENCES items(id)
-);
 
 User Example:
 {
@@ -72,17 +41,7 @@ User Example:
   created: UUID[] ---> will be a list of usercreated lists
 
 
-
-CREATE TABLE user_followers (
-    follower_id INTEGER,
-    followed_id INTEGER,
-    PRIMARY KEY (follower_id, followed_id),
-    FOREIGN KEY (follower_id) REFERENCES users(id),
-    FOREIGN KEY (followed_id) REFERENCES users(id)
-);
 }
-
-
 
 
 */
@@ -117,6 +76,7 @@ CREATE TABLE user_lists (
     FOREIGN KEY (category_id) REFERENCES item_categories(id)
 );
   */
+
 CREATE TYPE item_category AS ENUM ('Electronics', 'Clothing', 'Books', 'Furniture');
 
 CREATE TABLE user_lists (
@@ -161,7 +121,7 @@ CREATE TABLE user_ratings (
     id SERIAL PRIMARY KEY,
     user_id BIGINT NOT NULL,
     item_id BIGINT NOT NULL,
-    rating_value DOUBLE PRECISION NOT NULL,
+    rating_value FLOAT NOT NULL CHECK (rating_value >= 0 AND rating_value <= 5),
     timestamp TIMESTAMP(0) WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(id),
     FOREIGN KEY (item_id) REFERENCES lists(id)
