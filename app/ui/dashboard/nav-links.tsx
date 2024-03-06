@@ -20,6 +20,7 @@ import { TbBook } from "react-icons/tb";
 import { IoCarSportOutline } from "react-icons/io5";
 import { MdOutlineElectricalServices } from "react-icons/md";
 import { CiGlobe } from "react-icons/ci";
+import { CgGames } from "react-icons/cg";
 
 import clsx from "clsx";
 
@@ -41,12 +42,13 @@ const categoryLinks = [
   { name: "Travel", href: "/a", icon: CiPlane },
   { name: "Music", href: "/a", icon: CiMusicNote1 },
   { name: "Movies", href: "/a", icon: BiCameraMovie },
-  { name: "TV ", href: "/a", icon: PiTelevision },
+  { name: "Television ", href: "/a", icon: PiTelevision },
   { name: "Food ", href: "/a", icon: IoFastFoodOutline },
+  { name: "Gaming", href: "/a", icon: CgGames },
   { name: "Shopping ", href: "/a", icon: HiOutlineShoppingBag },
   { name: "Books ", href: "/a", icon: TbBook },
   { name: "Automobiles ", href: "/a", icon: IoCarSportOutline },
-  { name: "Electronics ", href: "/a", icon: MdOutlineElectricalServices },
+  { name: "Electronics", href: "/a", icon: MdOutlineElectricalServices },
   { name: "Web ", href: "/a", icon: CiGlobe },
 ];
 

@@ -77,7 +77,7 @@ CREATE TABLE user_lists (
 );
   */
 
-CREATE TYPE item_category AS ENUM ('Electronics', 'Clothing', 'Books', 'Furniture');
+CREATE TYPE item_category AS ENUM ('Travel', 'Music', 'Television', 'Movies', 'Food', 'Gaming', 'Shopping', 'Books', 'Automobiles', 'Electronics', 'Web');
 
 CREATE TABLE user_lists (
     id SERIAL PRIMARY KEY,
