@@ -43,17 +43,7 @@ User Example:
 
 }
 
-
 */
-
-CREATE TABLE users (
-    id SERIAL PRIMARY KEY,
-    username VARCHAR(50) NOT NULL UNIQUE,
-    password VARCHAR(255) NOT NULL,
-    email VARCHAR(255) NOT NULL UNIQUE,,
-    profile_picture TEXT NULL,
-    biography TEXT NULL
-);
 
 -- will need to create enum for category type--
 
@@ -81,7 +71,7 @@ CREATE TYPE item_category AS ENUM ('Travel', 'Music', 'Television', 'Movies', 'F
 
 CREATE TABLE user_lists (
     id SERIAL PRIMARY KEY,
-    user_id BIGINT NOT NULL,
+    user_id BIGINT NOT NULL ON DELETE CASCADE,
     title TEXT NOT NULL,
     image TEXT NULL,
     description TEXT NULL,
@@ -90,9 +80,21 @@ CREATE TABLE user_lists (
     FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+
+-- Then, create the users table using UUIDs for the id column
+CREATE TABLE users (
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    profile_picture TEXT NULL,
+    biography TEXT NULL
+);
+
 CREATE TABLE list_items (
     id SERIAL PRIMARY KEY,
-    list_id BIGINT NOT NULL,
+    list_id BIGINT NOT NULL ON DELETE CASCADE,
     list_item TEXT NOT NULL,
     image TEXT NULL,
     description TEXT NULL,
@@ -103,7 +105,7 @@ CREATE TABLE list_items (
 
 CREATE TABLE user_viewing_histories (
     id SERIAL PRIMARY KEY,
-    user_id BIGINT NOT NULL,
+    user_id BIGINT NOT NULL ON DELETE CASCADE,
     item_id BIGINT NOT NULL,
     timestamp TIMESTAMP(0) WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(id),
@@ -119,16 +121,17 @@ CREATE TABLE list_topics (
 
 CREATE TABLE user_ratings (
     id SERIAL PRIMARY KEY,
-    user_id BIGINT NOT NULL,
-    item_id BIGINT NOT NULL,
+    user_id BIGINT NOT NULL ON DELETE CASCADE,
+    item_id BIGINT NOT NULL ,
     rating_value FLOAT NOT NULL CHECK (rating_value >= 0 AND rating_value <= 5),
     timestamp TIMESTAMP(0) WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    CONSTRAINT authenticated_user CHECK(EXISTS (SELECT 1 FROM users WHERE users.id = user_ratings.user_id))
     FOREIGN KEY (user_id) REFERENCES users(id),
     FOREIGN KEY (item_id) REFERENCES lists(id)
 );
 
 CREATE TABLE user_followers (
-    follower_id BIGINT NOT NULL,
+    follower_id BIGINT NOT NULL ON DELETE CASCADE,
     followed_id BIGINT NOT NULL,
     PRIMARY KEY (follower_id, followed_id),
     FOREIGN KEY (follower_id) REFERENCES users(id),
@@ -137,7 +140,7 @@ CREATE TABLE user_followers (
 
 CREATE TABLE user_saved_lists (
     id SERIAL PRIMARY KEY,
-    user_id BIGINT NOT NULL,
+    user_id BIGINT NOT NULL ON DELETE CASCADE,
     item_id BIGINT NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(id),
     FOREIGN KEY (item_id) REFERENCES lists(id)
