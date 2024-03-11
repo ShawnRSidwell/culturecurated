@@ -70,9 +70,9 @@ CREATE TABLE user_lists (
 CREATE TYPE item_category AS ENUM ('Travel', 'Music', 'Television', 'Movies', 'Food', 'Gaming', 'Shopping', 'Books', 'Automobiles', 'Electronics', 'Web');
 
 CREATE TABLE user_lists (
-    id SERIAL PRIMARY KEY,
-    user_id BIGINT NOT NULL ON DELETE CASCADE,
-    title TEXT NOT NULL,
+    id BIGSERIAL PRIMARY KEY,
+    user_id UUID NOT NULL ON DELETE CASCADE,
+    title VARCHAR(255) NOT NULL,
     image TEXT NULL,
     description TEXT NULL,
     category item_category NOT NULL,
@@ -93,54 +93,54 @@ CREATE TABLE users (
 );
 
 CREATE TABLE list_items (
-    id SERIAL PRIMARY KEY,
+    id BIGSERIAL PRIMARY KEY,
     list_id BIGINT NOT NULL ON DELETE CASCADE,
     list_item TEXT NOT NULL,
     image TEXT NULL,
     description TEXT NULL,
     link TEXT NULL,
-    subcategory TEXT NULL,
+    subcategory VARCHAR(100) NULL,
     FOREIGN KEY (list_id) REFERENCES lists(id)
 );
 
 CREATE TABLE user_viewing_histories (
-    id SERIAL PRIMARY KEY,
-    user_id BIGINT NOT NULL ON DELETE CASCADE,
+    id BIGSERIAL PRIMARY KEY,
+    user_id UUID NOT NULL ON DELETE CASCADE,
     item_id BIGINT NOT NULL,
     timestamp TIMESTAMP(0) WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(id),
-    FOREIGN KEY (item_id) REFERENCES lists(id)
+    FOREIGN KEY (item_id) REFERENCES user_lists(id)
 );
 
 CREATE TABLE list_topics (
     id SERIAL PRIMARY KEY,
     item_id BIGINT NOT NULL,
     topic TEXT NOT NULL,
-    FOREIGN KEY (item_id) REFERENCES lists(id)
+    FOREIGN KEY (item_id) REFERENCES user_lists(id)
 );
 
 CREATE TABLE user_ratings (
-    id SERIAL PRIMARY KEY,
-    user_id BIGINT NOT NULL ON DELETE CASCADE,
+    id BIGSERIAL PRIMARY KEY,
+    user_id UUID NOT NULL ON DELETE CASCADE,
     item_id BIGINT NOT NULL ,
     rating_value FLOAT NOT NULL CHECK (rating_value >= 0 AND rating_value <= 5),
     timestamp TIMESTAMP(0) WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP NOT NULL,
     CONSTRAINT authenticated_user CHECK(EXISTS (SELECT 1 FROM users WHERE users.id = user_ratings.user_id))
     FOREIGN KEY (user_id) REFERENCES users(id),
-    FOREIGN KEY (item_id) REFERENCES lists(id)
+    FOREIGN KEY (item_id) REFERENCES user_lists(id)
 );
 
 CREATE TABLE user_followers (
-    follower_id BIGINT NOT NULL ON DELETE CASCADE,
-    followed_id BIGINT NOT NULL,
+    follower_id UUID NOT NULL ON DELETE CASCADE,
+    followed_id UUID NOT NULL,
     PRIMARY KEY (follower_id, followed_id),
     FOREIGN KEY (follower_id) REFERENCES users(id),
     FOREIGN KEY (followed_id) REFERENCES users(id)
 );
 
 CREATE TABLE user_saved_lists (
-    id SERIAL PRIMARY KEY,
-    user_id BIGINT NOT NULL ON DELETE CASCADE,
+    id BIGSERIAL PRIMARY KEY,
+    user_id UUID NOT NULL ON DELETE CASCADE,
     item_id BIGINT NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(id),
     FOREIGN KEY (item_id) REFERENCES lists(id)
